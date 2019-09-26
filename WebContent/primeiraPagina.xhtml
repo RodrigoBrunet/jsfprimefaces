@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+</h:head>
+<body>
+
+	
+	<h:form id="formPessoa">
+		<h1>Formulário JSF</h1>
+		
+		<h:panelGrid columns="4">
+			<h:outputText value="Id: "></h:outputText>
+			<h:inputText value="#{pessoaBean.pessoa.id}" readonly="true"></h:inputText>
+							
+			<h:outputLabel value="Nome: "></h:outputLabel>
+			<h:inputText value="#{pessoaBean.pessoa.nome}" required="true" requiredMessage="Informe o nome"></h:inputText>
+			
+			
+			<h:outputLabel value="Sobrenome: "></h:outputLabel>
+			<h:inputText value="#{pessoaBean.pessoa.sobrenome}"></h:inputText>
+			
+			
+			<h:outputLabel value="CPF: "></h:outputLabel>
+			<h:inputText value="#{pessoaBean.pessoa.cpf}"></h:inputText>
+			
+			
+			<h:outputLabel value="Email: "></h:outputLabel>
+			<h:inputText value="#{pessoaBean.pessoa.email}"></h:inputText>
+			
+						
+		</h:panelGrid>
+		
+			<h:commandButton value="Remove" action="#{pessoaBean.remove}"></h:commandButton>
+			<h:commandButton value="Novo" action="#{pessoaBean.novo}"></h:commandButton>
+			<h:commandButton value="Salvar" action="#{pessoaBean.salvar}"></h:commandButton>
+			<h:messages showDetail="true" showSummary="false"></h:messages>
+		<h:dataTable value="#{pessoaBean.pessoas}" var="pessoa" border="1" cellpadding="10">
+			
+			<f:facet name="header">
+				Lista de pessoas cadastradas
+			</f:facet>
+		
+		
+			<h:column >
+				<f:facet name="header">ID</f:facet>
+				<h:outputText value="#{pessoa.id}"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">NOME</f:facet>
+				<h:outputText value="#{pessoa.nome}"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">SOBRENOME</f:facet>
+				<h:outputText value="#{pessoa.sobrenome}"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">CPF</f:facet>
+				<h:outputText value="#{pessoa.cpf}"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">EMAIL</f:facet>
+				<h:outputText value="#{pessoa.email}"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">EDITAR</f:facet>
+				<h:commandLink value="Editar" immediate="true"  id="botaoeditar">
+					<f:setPropertyActionListener value="#{pessoa}" target="#{pessoaBean.pessoa}"></f:setPropertyActionListener>
+					<f:ajax execute="botaoeditar" render="@form"></f:ajax>
+				</h:commandLink>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">EXCLUIR</f:facet>
+				<h:commandLink immediate="true" action="#{pessoaBean.remove}">
+					<h:graphicImage url="/resources/img/delete.png" width="30" height="30"/>
+					<f:setPropertyActionListener value="#{pessoa}" target="#{pessoaBean.pessoa}"></f:setPropertyActionListener>
+				</h:commandLink>
+			</h:column>
+			
+		</h:dataTable>
+		
+	</h:form>
+	
+</body>
+</html>
