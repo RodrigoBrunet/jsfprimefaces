@@ -76,13 +76,15 @@ xmlns:p="http://primefaces.org/ui">
 						</p:column>
 						
 						<p:column headerText="EDITAR" width="50">
-							<h:commandLink value="Editar">
+							<h:commandLink>
+								<h:graphicImage url="/resources/img/editar.png" width="25" height="25"/>
 								<f:setPropertyActionListener value="#{pessoa}" target="#{pessoaBean.pessoa}" ></f:setPropertyActionListener>
 							</h:commandLink>
 						</p:column>			
 									
 						<p:column headerText="REMOVER" width="50">
-							<h:commandLink value="Remover" action="#{pessoaBean.remove}">
+							<h:commandLink action="#{pessoaBean.remove}">
+							<h:graphicImage url="/resources/img/delete.png" width="30" height="30"/>
 								<f:setPropertyActionListener value="#{pessoa}" target="#{pessoaBean.pessoa}" ></f:setPropertyActionListener>
 							</h:commandLink>
 						</p:column>			
