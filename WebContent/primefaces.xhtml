@@ -33,37 +33,47 @@ xmlns:p="http://primefaces.org/ui">
 									
 					<p:outputLabel>EMAIL:</p:outputLabel>
 					<p:inputText value="#{pessoaBean.pessoa.email}" size="70"></p:inputText>
-				
-				
+					
+					<p:outputLabel>SEXO:</p:outputLabel>
+					<p:selectOneMenu id="texto" value="#{pessoaBean.pessoa.sexo}"> 
+						<f:selectItem itemLabel="SELECIONE O SEXO" itemValue=""></f:selectItem>
+						<f:selectItem itemLabel="FEMININO" itemValue="FEMININO"></f:selectItem>
+						<f:selectItem itemLabel="MASCULINO" itemValue="MASCULINO"></f:selectItem>
+					</p:selectOneMenu> 
+									
 			</p:panelGrid>
 		</p:panel>
-		
-					<p:commandButton value="Remove" action="#{pessoaBean.remove}" ajax="false"></p:commandButton>
+					<br/>
+					<p:commandButton value="Remover" action="#{pessoaBean.remove}" ajax="false"></p:commandButton>
 					<p:commandButton value="Novo" action="#{pessoaBean.novo}" ajax="false"></p:commandButton>
 					<p:commandButton value="Salvar" action="#{pessoaBean.salvar}" ajax="false"></p:commandButton>
 					
 					<h1>LISTA DE PESSOAS</h1>
 					
 					<p:dataTable value="#{pessoaBean.pessoas}" var="pessoa" style="text-align:center">
-						<p:column headerText="ID" width="40">
+						<p:column headerText="ID" width="25">
 							<h:outputText value="#{pessoa.id}"/>
 						</p:column>
 						
-						<p:column headerText="NOME" width="150">
+						<p:column headerText="NOME" width="100">
 							<h:outputText value="#{pessoa.nome}"/>
 						</p:column>
 						
-						<p:column headerText="SOBRENOME" width="150">
+						<p:column headerText="SOBRENOME" width="80">
 							<h:outputText value="#{pessoa.sobrenome}"/>
 						</p:column>
 						
-						<p:column headerText="CPF" width="150">
+						<p:column headerText="CPF" width="70">
 							<h:outputText value="#{pessoa.cpf}"/>
 						</p:column>
 						
 						<p:column headerText="EMAIL" width="150">
 							<h:outputText value="#{pessoa.email}"/>
 						</p:column>			
+						
+						<p:column headerText="SEXO" width="70">
+							<h:outputText value="#{pessoa.sexo}"/>
+						</p:column>
 						
 						<p:column headerText="EDITAR" width="50">
 							<h:commandLink value="Editar">

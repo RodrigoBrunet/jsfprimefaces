@@ -25,6 +25,16 @@ public class Pessoa implements Serializable {
 	
 	private String email;
 	
+	private String sexo;
+	
+	public String getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -65,12 +75,7 @@ public class Pessoa implements Serializable {
 		this.email = email;
 	}
 
-	@Override
-	public String toString() {
-		return "Pessoa [id=" + id + ", nome=" + nome + ", sobrenome=" + sobrenome + ", cpf=" + cpf + ", email=" + email
-				+ "]";
-	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
