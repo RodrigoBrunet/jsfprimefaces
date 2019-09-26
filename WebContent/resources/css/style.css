@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+body{
+	font-size: 12px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin: 40px;
+}
+
+h1{
+	font-size: 20px;
+	font-weight: 450;
+	color: green;
+}
+.teste{
+	text-align: center;
+	
+}
+
